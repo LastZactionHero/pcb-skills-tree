@@ -1,0 +1,181 @@
+graph TD
+    %% ===== RPG SKILL TREE: PCB DESIGN MASTERY =====
+    %% High-Tech Cyberpunk Circuit Board Aesthetic
+    
+    %% Advanced Styling for RPG Feel
+    classDef tier fill:#1a1a1a,stroke:#ffd700,stroke-width:3px,color:#ffd700,font-weight:bold,font-size:16px
+    classDef pathContainer fill:#0a0a0a,stroke:#cc9900,stroke-width:2px,color:#ffd700,font-weight:bold
+    classDef skillNode fill:#2a2a2a,stroke:#ffd700,stroke-width:2px,color:#ffd700,font-weight:bold,font-size:12px
+    classDef masterSkill fill:#3a3a3a,stroke:#ffed4e,stroke-width:3px,color:#ffed4e,font-weight:bold,font-size:14px
+    classDef legendarySkill fill:#4a4a4a,stroke:#fff700,stroke-width:4px,color:#fff700,font-weight:bold,font-size:16px
+    
+    %% ================================
+    %% TIER I: ROOKIE APPRENTICE 
+    %% ================================
+    subgraph T1 ["🔧 TIER I: ROOKIE APPRENTICE"]
+        direction TB
+        subgraph PATH1 ["⚡ CIRCUIT FOUNDATION"]
+            A1["📋 PCB Anatomy<br/>└ Layer Structure"]
+            A2["🔌 Component Tech<br/>└ THT vs SMD"]
+            A3["👣 Footprint Library<br/>└ Land Patterns"]
+            A1 --> A2 --> A3
+        end
+        
+        subgraph PATH2 ["💻 DIGITAL WORKFLOW"]
+            B1["📐 Schematic Mastery<br/>└ Symbol Creation"]
+            B2["🔗 Netlist Control<br/>└ Net Management"]
+            B3["🛠️ ECAD Platform<br/>└ Tool Proficiency"]
+            B4["📄 Gerber Standard<br/>└ Fab Output"]
+            B1 --> B2 --> B3 --> B4
+        end
+    end
+
+    %% ================================
+    %% TIER II: PRO JOURNEYMAN
+    %% ================================
+    subgraph T2 ["⚙️ TIER II: PRO JOURNEYMAN"]
+        direction TB
+        subgraph PATH3 ["🎯 2-LAYER MASTERY"]
+            C1["🗺️ Strategic Planning<br/>└ Component Placement"]
+            C2["⚡ Power Decoupling<br/>└ Bypass Capacitors"]
+            C3["🛤️ Trace Routing<br/>└ Width & Spacing"]
+            C4["📐 Orthogonal Design<br/>└ Manhattan Routing"]
+            C5["🌊 Ground Pour<br/>└ Copper Fill"]
+            C6["🔥 Thermal Relief<br/>└ Heat Management"]
+            C7["💰 DFM: Cost Control<br/>└ Fab Economics"]
+            C8["🔍 DFT: Test Access<br/>└ Debug Points"]
+            C1 --> C2 --> C3 --> C4 --> C5 --> C6 --> C7 --> C8
+        end
+        
+        subgraph PATH4 ["🏗️ MULTILAYER CORE"]
+            D1["⚡ Power Planes<br/>└ Dedicated Layers"]
+            D2["📚 4-Layer Stack<br/>└ Controlled Build"]
+            D3["🛡️ EMC Design<br/>└ Noise Control"]
+            D4["🔄 Return Paths<br/>└ Current Flow"]
+            D5["⚠️ Path Discontinuity<br/>└ Gap Analysis"]
+            D6["🔗 Stitching Vias<br/>└ Plane Connection"]
+            D1 --> D2 --> D3 --> D4 --> D5 --> D6
+        end
+    end
+
+    %% ================================
+    %% TIER III: VETERAN SPECIALIST
+    %% ================================
+    subgraph T3 ["🎖️ TIER III: VETERAN SPECIALIST"]
+        direction TB
+        subgraph PATH5 ["📡 SIGNAL INTEGRITY"]
+            E1["📏 Transmission Lines<br/>└ Wave Propagation"]
+            E2["⚖️ Controlled Z₀<br/>└ Impedance Matching"]
+            E3["👥 Differential Pairs<br/>└ Balanced Signals"]
+            E4["🚫 Crosstalk Defense<br/>└ Isolation Tactics"]
+            E1 --> E2 --> E3 --> E4
+        end
+        
+        subgraph PATH6 ["⚡ POWER INTEGRITY"]
+            F1["🔋 PDN System<br/>└ Power Network"]
+            F2["📊 PDN Impedance<br/>└ Z-Profile Control"]
+            F3["🎚️ Multi-Value Caps<br/>└ Frequency Response"]
+            F4["⚡ Plane Capacitance<br/>└ Intrinsic Storage"]
+            F1 --> F2 --> F3 --> F4
+        end
+        
+        subgraph PATH7 ["🔬 HDI TECHNIQUES"]
+            G1["🎯 BGA Fanout<br/>└ Escape Routing"]
+            G2["🔘 Via-in-Pad<br/>└ Space Optimization"]
+            G3["🔸 Microvias<br/>└ Small Diameter"]
+            G4["📐 Sequential Build<br/>└ Layer Addition"]
+            G5["🔒 Microvia Reliability<br/>└ Failure Analysis"]
+            G1 --> G2 --> G3 --> G4 --> G5
+        end
+    end
+
+    %% ================================
+    %% TIER IV: MASTER ARCHITECT
+    %% ================================
+    subgraph T4 ["👑 TIER IV: MASTER ARCHITECT"]
+        direction TB
+        subgraph PATH8 ["🧠 DDR MEMORY"]
+            H1["🎯 Signal Groups<br/>└ Bus Organization"]
+            H2["📏 Length Matching<br/>└ Timing Control"]
+            H3["🌐 Topology Design<br/>└ T-Point/Daisy"]
+            H4["🐍 Serpentine Tuning<br/>└ Delay Matching"]
+            H5["🔚 VTT Termination<br/>└ Signal Integrity"]
+            H1 --> H2 --> H3 --> H4 --> H5
+        end
+        
+        subgraph PATH9 ["📻 RF & MICROWAVE"]
+            I1["🪶 Low-Loss Materials<br/>└ Substrate Selection"]
+            I2["⚡ 50Ω Universe<br/>└ RF Standard"]
+            I3["🛡️ RF Shielding<br/>└ Isolation Chambers"]
+            I4["🔗 RF Via Stitching<br/>└ Ground Continuity"]
+            I5["📡 PCB Antenna<br/>└ Integrated Radiator"]
+            I1 --> I2 --> I3 --> I4 --> I5
+        end
+        
+        subgraph PATH10 ["🏭 ADVANCED DFM"]
+            J1["🔲 Panelization<br/>└ Array Optimization"]
+            J2["🔧 Via Treatments<br/>└ Fill/Cap/Tent"]
+            J3["📋 Fab Drawing<br/>└ Spec Documentation"]
+            J4["📦 Complete Package<br/>└ Full Data Set"]
+            J1 --> J2 --> J3 --> J4
+        end
+    end
+
+    %% ================================
+    %% TIER V: GRANDMASTER LEGEND
+    %% ================================
+    subgraph T5 ["🏆 TIER V: GRANDMASTER LEGEND"]
+        direction LR
+        K1["🔍 Open Source Analysis<br/>└ Reverse Engineering<br/>└ Circuit Archaeology"]
+        K2["♾️ Full-Cycle Mastery<br/>└ Concept to Production<br/>└ Complete Ownership"]
+        K1 --> K2
+    end
+
+    %% ================================
+    %% SKILL TREE PROGRESSION PATHS
+    %% ================================
+    
+    %% Foundation to 2-Layer
+    A3 -.->|"Master Footprints"| C1
+    B4 -.->|"Gerber Mastery"| C1
+    
+    %% 2-Layer to Multilayer
+    C8 -.->|"Test Experience"| D1
+    
+    %% Multilayer to Advanced
+    D6 -.->|"Via Mastery"| E1
+    D6 -.->|"Plane Control"| F1
+    D6 -.->|"HDI Foundation"| G1
+    
+    %% Advanced to Master
+    E4 -.->|"SI Mastery"| H1
+    E4 -.->|"High-Speed"| I1
+    F4 -.->|"Power Mastery"| H1
+    F4 -.->|"Clean Power"| I1
+    G5 -.->|"HDI Expert"| H1
+    G5 -.->|"Dense Routing"| J1
+    C7 -.->|"Cost Awareness"| J1
+    
+    %% Master to Legend
+    H5 -.->|"Memory Expert"| K1
+    I5 -.->|"RF Master"| K1
+    J4 -.->|"DFM Master"| K1
+    
+    %% ================================
+    %% APPLY RPG STYLING
+    %% ================================
+    
+    %% Tier Styling
+    class T1,T2,T3,T4,T5 tier
+    
+    %% Path Container Styling
+    class PATH1,PATH2,PATH3,PATH4,PATH5,PATH6,PATH7,PATH8,PATH9,PATH10 pathContainer
+    
+    %% Regular Skills
+    class A1,A2,B1,B2,B3,C1,C2,C3,C4,C5,C6,C7,D1,D2,D3,D4,D5,E1,E2,E3,F1,F2,F3,G1,G2,G3,G4,H1,H2,H3,H4,I1,I2,I3,I4,J1,J2,J3 skillNode
+    
+    %% Master Level Skills
+    class A3,B4,C8,D6,E4,F4,G5,H5,I5,J4 masterSkill
+    
+    %% Legendary Skills
+    class K1,K2 legendarySkill

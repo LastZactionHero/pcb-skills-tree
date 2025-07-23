@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCB Design Skills Tree - Cyberpunk Edition</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-grid"></div>
+    
+    <header class="header">
+        <h1 class="main-title">
+            <span class="title-icon">⚡</span>
+            PCB Design Mastery
+            <span class="subtitle">Design Skills Matrix</span>
+        </h1>
+        <div class="progress-bar">
+            <div class="progress-fill" data-progress="0"></div>
+            <span class="progress-text">Skills Unlocked: <span id="skills-count">0</span>/42</span>
+        </div>
+    </header>
+
+    <main class="skill-tree-container">
+        <!-- Tier 1: Rookie Apprentice -->
+        <section class="tier" data-tier="1">
+            <div class="tier-header">
+                <h2 class="tier-title">
+                    <span class="tier-icon">🔧</span>
+                    TIER I: ROOKIE APPRENTICE
+                    <span class="tier-level">Level 1-10</span>
+                </h2>
+            </div>
+            
+            <div class="paths-container">
+                <div class="skill-path" data-path="circuit-foundation">
+                    <h3 class="path-title">
+                        <span class="path-icon">⚡</span>
+                        CIRCUIT FOUNDATION
+                    </h3>
+                    <div class="skills-row">
+                        <div class="skill-node" data-skill="pcb-anatomy" data-prerequisite="">
+                            <div class="skill-icon">📋</div>
+                            <div class="skill-name">PCB Anatomy</div>
+                            <div class="skill-subtitle">Layer Structure</div>
+                            <div class="skill-level">1</div>
+                        </div>
+                        <div class="connection-line"></div>
+                        <div class="skill-node" data-skill="component-tech" data-prerequisite="pcb-anatomy">
+                            <div class="skill-icon">🔌</div>
+                            <div class="skill-name">Component Tech</div>
+                            <div class="skill-subtitle">THT vs SMD</div>
+                            <div class="skill-level">2</div>
+                        </div>
+                        <div class="connection-line"></div>
+                        <div class="skill-node master-skill" data-skill="footprint-library" data-prerequisite="component-tech">
+                            <div class="skill-icon">👣</div>
+                            <div class="skill-name">Footprint Library</div>
+                            <div class="skill-subtitle">Land Patterns</div>
+                            <div class="skill-level">3</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-path" data-path="digital-workflow">
+                    <h3 class="path-title">
+                        <span class="path-icon">💻</span>
+                        DIGITAL WORKFLOW
+                    </h3>
+                    <div class="skills-row">
+                        <div class="skill-node" data-skill="schematic-mastery" data-prerequisite="">
+                            <div class="skill-icon">📐</div>
+                            <div class="skill-name">Schematic Mastery</div>
+                            <div class="skill-subtitle">Symbol Creation</div>
+                            <div class="skill-level">1</div>
+                        </div>
+                        <div class="connection-line"></div>
+                        <div class="skill-node" data-skill="netlist-control" data-prerequisite="schematic-mastery">
+                            <div class="skill-icon">🔗</div>
+                            <div class="skill-name">Netlist Control</div>
+                            <div class="skill-subtitle">Net Management</div>
+                            <div class="skill-level">2</div>
+                        </div>
+                        <div class="connection-line"></div>
+                        <div class="skill-node" data-skill="ecad-platform" data-prerequisite="netlist-control">
+                            <div class="skill-icon">🛠️</div>
+                            <div class="skill-name">ECAD Platform</div>
+                            <div class="skill-subtitle">Tool Proficiency</div>
+                            <div class="skill-level">3</div>
+                        </div>
+                        <div class="connection-line"></div>
+                        <div class="skill-node master-skill" data-skill="gerber-standard" data-prerequisite="ecad-platform">
+                            <div class="skill-icon">📄</div>
+                            <div class="skill-name">Gerber Standard</div>
+                            <div class="skill-subtitle">Fab Output</div>
+                            <div class="skill-level">4</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tier 2: Pro Journeyman -->
+        <section class="tier" data-tier="2">
+            <div class="tier-header">
+                <h2 class="tier-title">
+                    <span class="tier-icon">⚙️</span>
+                    TIER II: PRO JOURNEYMAN
+                    <span class="tier-level">Level 11-25</span>
+                </h2>
+            </div>
+            
+            <div class="paths-container">
+                <div class="skill-path" data-path="2layer-mastery">
+                    <h3 class="path-title">
+                        <span class="path-icon">🎯</span>
+                        2-LAYER MASTERY
+                    </h3>
+                    <div class="skills-grid">
+                        <div class="skill-node" data-skill="strategic-planning" data-prerequisite="footprint-library,gerber-standard">
+                            <div class="skill-icon">🗺️</div>
+                            <div class="skill-name">Strategic Planning</div>
+                            <div class="skill-subtitle">Component Placement</div>
+                            <div class="skill-level">5</div>
+                        </div>
+                        <div class="skill-node" data-skill="power-decoupling" data-prerequisite="strategic-planning">
+                            <div class="skill-icon">⚡</div>
+                            <div class="skill-name">Power Decoupling</div>
+                            <div class="skill-subtitle">Bypass Capacitors</div>
+                            <div class="skill-level">6</div>
+                        </div>
+                        <div class="skill-node" data-skill="trace-routing" data-prerequisite="power-decoupling">
+                            <div class="skill-icon">🛤️</div>
+                            <div class="skill-name">Trace Routing</div>
+                            <div class="skill-subtitle">Width & Spacing</div>
+                            <div class="skill-level">7</div>
+                        </div>
+                        <div class="skill-node" data-skill="orthogonal-design" data-prerequisite="trace-routing">
+                            <div class="skill-icon">📐</div>
+                            <div class="skill-name">Orthogonal Design</div>
+                            <div class="skill-subtitle">Manhattan Routing</div>
+                            <div class="skill-level">8</div>
+                        </div>
+                        <div class="skill-node" data-skill="ground-pour" data-prerequisite="orthogonal-design">
+                            <div class="skill-icon">🌊</div>
+                            <div class="skill-name">Ground Pour</div>
+                            <div class="skill-subtitle">Copper Fill</div>
+                            <div class="skill-level">9</div>
+                        </div>
+                        <div class="skill-node" data-skill="thermal-relief" data-prerequisite="ground-pour">
+                            <div class="skill-icon">🔥</div>
+                            <div class="skill-name">Thermal Relief</div>
+                            <div class="skill-subtitle">Heat Management</div>
+                            <div class="skill-level">10</div>
+                        </div>
+                        <div class="skill-node" data-skill="dfm-cost" data-prerequisite="thermal-relief">
+                            <div class="skill-icon">💰</div>
+                            <div class="skill-name">DFM: Cost Control</div>
+                            <div class="skill-subtitle">Fab Economics</div>
+                            <div class="skill-level">11</div>
+                        </div>
+                        <div class="skill-node master-skill" data-skill="dft-test" data-prerequisite="orthogonal-design">
+                            <div class="skill-icon">🔍</div>
+                            <div class="skill-name">DFT: Test Access</div>
+                            <div class="skill-subtitle">Debug Points</div>
+                            <div class="skill-level">12</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-path" data-path="multilayer-core">
+                    <h3 class="path-title">
+                        <span class="path-icon">🏗️</span>
+                        MULTILAYER CORE
+                    </h3>
+                    <div class="skills-grid">
+                        <div class="skill-node" data-skill="power-planes" data-prerequisite="strategic-planning">
+                            <div class="skill-icon">⚡</div>
+                            <div class="skill-name">Power Planes</div>
+                            <div class="skill-subtitle">Dedicated Layers</div>
+                            <div class="skill-level">13</div>
+                        </div>
+                        <div class="skill-node" data-skill="4layer-stack" data-prerequisite="power-planes">
+                            <div class="skill-icon">📚</div>
+                            <div class="skill-name">4-Layer Stack</div>
+                            <div class="skill-subtitle">Controlled Build</div>
+                            <div class="skill-level">14</div>
+                        </div>
+                        <div class="skill-node" data-skill="emc-design" data-prerequisite="4layer-stack">
+                            <div class="skill-icon">🛡️</div>
+                            <div class="skill-name">EMC Design</div>
+                            <div class="skill-subtitle">Noise Control</div>
+                            <div class="skill-level">15</div>
+                        </div>
+                        <div class="skill-node" data-skill="return-paths" data-prerequisite="emc-design">
+                            <div class="skill-icon">🔄</div>
+                            <div class="skill-name">Return Paths</div>
+                            <div class="skill-subtitle">Current Flow</div>
+                            <div class="skill-level">16</div>
+                        </div>
+                        <div class="skill-node" data-skill="path-discontinuity" data-prerequisite="return-paths">
+                            <div class="skill-icon">⚠️</div>
+                            <div class="skill-name">Path Discontinuity</div>
+                            <div class="skill-subtitle">Gap Analysis</div>
+                            <div class="skill-level">17</div>
+                        </div>
+                        <div class="skill-node master-skill" data-skill="stitching-vias" data-prerequisite="path-discontinuity">
+                            <div class="skill-icon">🔗</div>
+                            <div class="skill-name">Stitching Vias</div>
+                            <div class="skill-subtitle">Plane Connection</div>
+                            <div class="skill-level">18</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tier 3: Veteran Specialist -->
+        <section class="tier" data-tier="3">
+            <div class="tier-header">
+                <h2 class="tier-title">
+                    <span class="tier-icon">🎖️</span>
+                    TIER III: VETERAN SPECIALIST
+                    <span class="tier-level">Level 26-35</span>
+                </h2>
+            </div>
+            
+            <div class="paths-container">
+                <div class="skill-path" data-path="signal-integrity">
+                    <h3 class="path-title">
+                        <span class="path-icon">📡</span>
+                        SIGNAL INTEGRITY
+                    </h3>
+                    <div class="skills-row">
+                        <div class="skill-node" data-skill="transmission-lines" data-prerequisite="4layer-stack">
+                            <div class="skill-icon">📏</div>
+                            <div class="skill-name">Transmission Lines</div>
+                            <div class="skill-subtitle">Wave Propagation</div>
+                            <div class="skill-level">19</div>
+                        </div>
+                        <div class="connection-line"></div>
+                        <div class="skill-node" data-skill="controlled-impedance" data-prerequisite="transmission-lines">
+                            <div class="skill-icon">⚖️</div>
+                            <div class="skill-name">Controlled Z₀</div>
+                            <div class="skill-subtitle">Impedance Matching</div>
+                            <div class="skill-level">20</div>
+                        </div>
+                        <div class="connection-line"></div>
+                        <div class="skill-node" data-skill="differential-pairs" data-prerequisite="controlled-impedance">
+                            <div class="skill-icon">👥</div>
+                            <div class="skill-name">Differential Pairs</div>
+                            <div class="skill-subtitle">Balanced Signals</div>
+                            <div class="skill-level">21</div>
+                        </div>
+                        <div class="connection-line"></div>
+                        <div class="skill-node master-skill" data-skill="crosstalk-defense" data-prerequisite="differential-pairs">
+                            <div class="skill-icon">🚫</div>
+                            <div class="skill-name">Crosstalk Defense</div>
+                            <div class="skill-subtitle">Isolation Tactics</div>
+                            <div class="skill-level">22</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-path" data-path="power-integrity">
+                    <h3 class="path-title">
+                        <span class="path-icon">⚡</span>
+                        POWER INTEGRITY
+                    </h3>
+                    <div class="skills-row">
+                        <div class="skill-node" data-skill="pdn-system" data-prerequisite="power-planes">
+                            <div class="skill-icon">🔋</div>
+                            <div class="skill-name">PDN System</div>
+                            <div class="skill-subtitle">Power Network</div>
+                            <div class="skill-level">19</div>
+                        </div>
+                        <div class="connection-line"></div>
+                        <div class="skill-node" data-skill="pdn-impedance" data-prerequisite="pdn-system">
+                            <div class="skill-icon">📊</div>
+                            <div class="skill-name">PDN Impedance</div>
+                            <div class="skill-subtitle">Z-Profile Control</div>
+                            <div class="skill-level">20</div>
+                        </div>
+                        <div class="connection-line"></div>
+                        <div class="skill-node" data-skill="multi-value-caps" data-prerequisite="pdn-impedance">
+                            <div class="skill-icon">🎚️</div>
+                            <div class="skill-name">Multi-Value Caps</div>
+                            <div class="skill-subtitle">Frequency Response</div>
+                            <div class="skill-level">21</div>
+                        </div>
+                        <div class="connection-line"></div>
+                        <div class="skill-node master-skill" data-skill="plane-capacitance" data-prerequisite="multi-value-caps">
+                            <div class="skill-icon">⚡</div>
+                            <div class="skill-name">Plane Capacitance</div>
+                            <div class="skill-subtitle">Intrinsic Storage</div>
+                            <div class="skill-level">22</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-path" data-path="hdi-techniques">
+                    <h3 class="path-title">
+                        <span class="path-icon">🔬</span>
+                        HDI TECHNIQUES
+                    </h3>
+                    <div class="skills-row">
+                        <div class="skill-node" data-skill="bga-fanout" data-prerequisite="4layer-stack">
+                            <div class="skill-icon">🎯</div>
+                            <div class="skill-name">BGA Fanout</div>
+                            <div class="skill-subtitle">Escape Routing</div>
+                            <div class="skill-level">19</div>
+                        </div>
+                        <div class="connection-line"></div>
+                        <div class="skill-node" data-skill="via-in-pad" data-prerequisite="bga-fanout">
+                            <div class="skill-icon">🔘</div>
+                            <div class="skill-name">Via-in-Pad</div>
+                            <div class="skill-subtitle">Space Optimization</div>
+                            <div class="skill-level">20</div>
+                        </div>
+                        <div class="connection-line"></div>
+                        <div class="skill-node" data-skill="microvias" data-prerequisite="via-in-pad">
+                            <div class="skill-icon">🔸</div>
+                            <div class="skill-name">Microvias</div>
+                            <div class="skill-subtitle">Small Diameter</div>
+                            <div class="skill-level">21</div>
+                        </div>
+                        <div class="connection-line"></div>
+                        <div class="skill-node" data-skill="sequential-build" data-prerequisite="microvias">
+                            <div class="skill-icon">📐</div>
+                            <div class="skill-name">Sequential Build</div>
+                            <div class="skill-subtitle">Layer Addition</div>
+                            <div class="skill-level">22</div>
+                        </div>
+                        <div class="connection-line"></div>
+                        <div class="skill-node master-skill" data-skill="microvia-reliability" data-prerequisite="sequential-build">
+                            <div class="skill-icon">🔒</div>
+                            <div class="skill-name">Microvia Reliability</div>
+                            <div class="skill-subtitle">Failure Analysis</div>
+                            <div class="skill-level">23</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tier 4: Master Architect -->
+        <section class="tier" data-tier="4">
+            <div class="tier-header">
+                <h2 class="tier-title">
+                    <span class="tier-icon">👑</span>
+                    TIER IV: MASTER ARCHITECT
+                    <span class="tier-level">Level 36-40</span>
+                </h2>
+            </div>
+            
+            <div class="paths-container specialization-paths">
+                <div class="skill-path" data-path="ddr-memory">
+                    <h3 class="path-title">
+                        <span class="path-icon">🧠</span>
+                        DDR MEMORY SPECIALIST
+                    </h3>
+                    <div class="skills-column">
+                        <div class="skill-node" data-skill="signal-groups" data-prerequisite="crosstalk-defense">
+                            <div class="skill-icon">🎯</div>
+                            <div class="skill-name">Signal Groups</div>
+                            <div class="skill-subtitle">Bus Organization</div>
+                            <div class="skill-level">24</div>
+                        </div>
+                        <div class="skill-node" data-skill="length-matching" data-prerequisite="signal-groups">
+                            <div class="skill-icon">📏</div>
+                            <div class="skill-name">Length Matching</div>
+                            <div class="skill-subtitle">Timing Control</div>
+                            <div class="skill-level">25</div>
+                        </div>
+                        <div class="skill-node" data-skill="topology-design" data-prerequisite="length-matching">
+                            <div class="skill-icon">🌐</div>
+                            <div class="skill-name">Topology Design</div>
+                            <div class="skill-subtitle">T-Point/Daisy</div>
+                            <div class="skill-level">26</div>
+                        </div>
+                        <div class="skill-node" data-skill="serpentine-tuning" data-prerequisite="topology-design">
+                            <div class="skill-icon">🐍</div>
+                            <div class="skill-name">Serpentine Tuning</div>
+                            <div class="skill-subtitle">Delay Matching</div>
+                            <div class="skill-level">27</div>
+                        </div>
+                        <div class="skill-node master-skill" data-skill="vtt-termination" data-prerequisite="serpentine-tuning">
+                            <div class="skill-icon">🔚</div>
+                            <div class="skill-name">VTT Termination</div>
+                            <div class="skill-subtitle">Signal Integrity</div>
+                            <div class="skill-level">28</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-path" data-path="rf-microwave">
+                    <h3 class="path-title">
+                        <span class="path-icon">📻</span>
+                        RF & MICROWAVE SPECIALIST
+                    </h3>
+                    <div class="skills-column">
+                        <div class="skill-node" data-skill="low-loss-materials" data-prerequisite="crosstalk-defense">
+                            <div class="skill-icon">🪶</div>
+                            <div class="skill-name">Low-Loss Materials</div>
+                            <div class="skill-subtitle">Substrate Selection</div>
+                            <div class="skill-level">24</div>
+                        </div>
+                        <div class="skill-node" data-skill="50ohm-universe" data-prerequisite="low-loss-materials">
+                            <div class="skill-icon">⚡</div>
+                            <div class="skill-name">50Ω Universe</div>
+                            <div class="skill-subtitle">RF Standard</div>
+                            <div class="skill-level">25</div>
+                        </div>
+                        <div class="skill-node" data-skill="rf-shielding" data-prerequisite="50ohm-universe">
+                            <div class="skill-icon">🛡️</div>
+                            <div class="skill-name">RF Shielding</div>
+                            <div class="skill-subtitle">Isolation Chambers</div>
+                            <div class="skill-level">26</div>
+                        </div>
+                        <div class="skill-node" data-skill="rf-via-stitching" data-prerequisite="rf-shielding">
+                            <div class="skill-icon">🔗</div>
+                            <div class="skill-name">RF Via Stitching</div>
+                            <div class="skill-subtitle">Ground Continuity</div>
+                            <div class="skill-level">27</div>
+                        </div>
+                        <div class="skill-node master-skill" data-skill="pcb-antenna" data-prerequisite="rf-via-stitching">
+                            <div class="skill-icon">📡</div>
+                            <div class="skill-name">PCB Antenna</div>
+                            <div class="skill-subtitle">Integrated Radiator</div>
+                            <div class="skill-level">28</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-path" data-path="advanced-dfm">
+                    <h3 class="path-title">
+                        <span class="path-icon">🏭</span>
+                        ADVANCED DFM SPECIALIST
+                    </h3>
+                    <div class="skills-column">
+                        <div class="skill-node" data-skill="panelization" data-prerequisite="dfm-cost">
+                            <div class="skill-icon">🔲</div>
+                            <div class="skill-name">Panelization</div>
+                            <div class="skill-subtitle">Array Optimization</div>
+                            <div class="skill-level">24</div>
+                        </div>
+                        <div class="skill-node" data-skill="via-treatments" data-prerequisite="panelization">
+                            <div class="skill-icon">🔧</div>
+                            <div class="skill-name">Via Treatments</div>
+                            <div class="skill-subtitle">Fill/Cap/Tent</div>
+                            <div class="skill-level">25</div>
+                        </div>
+                        <div class="skill-node" data-skill="fab-drawing" data-prerequisite="via-treatments">
+                            <div class="skill-icon">📋</div>
+                            <div class="skill-name">Fab Drawing</div>
+                            <div class="skill-subtitle">Spec Documentation</div>
+                            <div class="skill-level">26</div>
+                        </div>
+                        <div class="skill-node master-skill" data-skill="complete-package" data-prerequisite="fab-drawing">
+                            <div class="skill-icon">📦</div>
+                            <div class="skill-name">Complete Package</div>
+                            <div class="skill-subtitle">Full Data Set</div>
+                            <div class="skill-level">27</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tier 5: Grandmaster Legend -->
+        <section class="tier legendary-tier" data-tier="5">
+            <div class="tier-header">
+                <h2 class="tier-title">
+                    <span class="tier-icon">🏆</span>
+                    TIER V: GRANDMASTER LEGEND
+                    <span class="tier-level">Level 41-42</span>
+                </h2>
+            </div>
+            
+            <div class="paths-container">
+                <div class="legendary-skills">
+                    <div class="skill-node legendary-skill" data-skill="open-source-analysis" data-prerequisite="vtt-termination,pcb-antenna">
+                        <div class="skill-icon">🔍</div>
+                        <div class="skill-name">Open Source Analysis</div>
+                        <div class="skill-subtitle">Reverse Engineering</div>
+                        <div class="skill-description">Circuit Archaeology</div>
+                        <div class="skill-level">41</div>
+                    </div>
+                    <div class="connection-line legendary-connection"></div>
+                    <div class="skill-node legendary-skill" data-skill="full-cycle-mastery" data-prerequisite="open-source-analysis">
+                        <div class="skill-icon">♾️</div>
+                        <div class="skill-name">Full-Cycle Mastery</div>
+                        <div class="skill-subtitle">Concept to Production</div>
+                        <div class="skill-description">Complete Ownership</div>
+                        <div class="skill-level">42</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Skill Detail Modal -->
+    <div id="skill-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="skill-detail">
+                <div class="skill-detail-header">
+                    <div class="skill-detail-icon"></div>
+                    <div class="skill-detail-info">
+                        <h3 class="skill-detail-name"></h3>
+                        <p class="skill-detail-subtitle"></p>
+                        <div class="skill-detail-level"></div>
+                    </div>
+                </div>
+                <div class="skill-detail-description"></div>
+                <div class="skill-detail-prerequisites"></div>
+                <div class="skill-detail-unlocks"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

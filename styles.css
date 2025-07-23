@@ -1,0 +1,867 @@
+/* ===== CYBERPUNK PCB SKILLS TREE CSS ===== */
+/* High-Tech Circuit Board Aesthetic with Golden Glow */
+
+/* === ROOT VARIABLES === */
+:root {
+  /* Color Palette - Pitt Viper Neon Edge */
+  --color-primary: #00ffff;        /* Electric cyan */
+  --color-primary-bright: #ff00ff; /* Hot magenta */
+  --color-primary-dim: #0088cc;    /* Dimmed cyan */
+  --color-background: #0a0a0a;     /* Deep black */
+  --color-surface: #1a0a1a;       /* Dark with purple tint */
+  --color-surface-light: #2a1a2a; /* Lighter surface with purple */
+  --color-surface-lighter: #3a2a3a; /* Even lighter with purple */
+  --color-text: #00ffff;          /* Cyan text */
+  --color-text-dim: #0088cc;      /* Dimmed cyan */
+  --color-accent: #00ff00;        /* Electric green accent */
+  --color-warning: #ff0080;       /* Hot pink warning */
+  
+  /* Glow Effects - Pitt Viper Style */
+  --glow-primary: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary), 0 0 30px var(--color-primary);
+  --glow-bright: 0 0 15px var(--color-primary-bright), 0 0 30px var(--color-primary-bright), 0 0 45px var(--color-primary-bright);
+  --glow-subtle: 0 0 5px var(--color-primary), 0 0 10px var(--color-primary);
+  --glow-neon-green: 0 0 10px var(--color-accent), 0 0 20px var(--color-accent), 0 0 30px var(--color-accent);
+  --glow-hot-pink: 0 0 10px var(--color-warning), 0 0 20px var(--color-warning), 0 0 30px var(--color-warning);
+  --glow-electric: 0 0 8px #00ffff, 0 0 16px #ff00ff, 0 0 24px #00ff00;
+  
+  /* Additional Pitt Viper Colors */
+  --color-neon-yellow: #ffff00;
+  --color-neon-orange: #ff8000;
+  --color-electric-blue: #0080ff;
+  --color-laser-green: #00ff80;
+  
+  /* Typography */
+  --font-primary: 'Orbitron', monospace;
+  --font-secondary: 'Exo 2', sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* === GLOBAL RESET & BASE STYLES === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-secondary);
+  background: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: auto;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* === ANIMATED BACKGROUND GRID === */
+.background-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+  z-index: -1;
+  background-image: 
+    linear-gradient(var(--color-primary) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-accent) 1px, transparent 1px),
+    radial-gradient(circle at 25% 25%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(0, 255, 255, 0.1) 0%, transparent 50%);
+  background-size: 50px 50px, 50px 50px, 200px 200px, 300px 300px;
+  animation: gridShift 20s linear infinite, gridPulse 8s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.2; }
+}
+
+@keyframes gridShift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+/* === HEADER SECTION === */
+.header {
+  padding: var(--spacing-xl);
+  text-align: center;
+  border-bottom: 2px solid var(--color-primary-dim);
+  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 100%);
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
+}
+
+.main-title {
+  font-family: var(--font-primary);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--spacing-lg);
+  text-shadow: var(--glow-primary);
+  position: relative;
+}
+
+.title-icon {
+  font-size: 1.2em;
+  margin-right: var(--spacing-sm);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.subtitle {
+  display: block;
+  font-size: 0.4em;
+  font-weight: 400;
+  color: var(--color-primary-dim);
+  margin-top: var(--spacing-sm);
+  letter-spacing: 0.2em;
+}
+
+/* === PROGRESS BAR === */
+.progress-bar {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--color-surface);
+  border: 2px solid var(--color-primary-dim);
+  border-radius: 25px;
+  padding: var(--spacing-xs);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 20px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-bright), var(--color-accent), var(--color-neon-yellow));
+  border-radius: 20px;
+  width: 0%;
+  transition: width var(--transition-slow);
+  box-shadow: var(--glow-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: progressShimmer 2s ease-in-out infinite;
+}
+
+@keyframes progressShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* === SKILL TREE CONTAINER === */
+.skill-tree-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+}
+
+/* === TIER SECTIONS === */
+.tier {
+  margin-bottom: var(--spacing-xxl);
+  background: linear-gradient(135deg, var(--color-surface) 0%, rgba(26, 26, 26, 0.5) 100%);
+  border: 2px solid var(--color-primary-dim);
+  border-radius: 15px;
+  padding: var(--spacing-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.tier::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+  animation: energySweep 3s ease-in-out infinite;
+}
+
+@keyframes energySweep {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.tier-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.tier-title {
+  font-family: var(--font-primary);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow: var(--glow-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.tier-icon {
+  font-size: 1.2em;
+  /* animation: rotate 4s linear infinite; */
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.tier-level {
+  font-size: 0.4em;
+  color: var(--color-primary-dim);
+  font-weight: 400;
+  margin-left: var(--spacing-sm);
+}
+
+/* === PATH CONTAINERS === */
+.paths-container {
+  display: grid;
+  gap: var(--spacing-xl);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.specialization-paths {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.skill-path {
+  background: var(--color-surface-light);
+  border: 2px solid var(--color-primary-dim);
+  border-radius: 10px;
+  padding: var(--spacing-lg);
+  position: relative;
+  transition: all var(--transition-medium);
+}
+
+.skill-path:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--glow-subtle);
+  border-color: var(--color-primary);
+}
+
+.path-title {
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-primary-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.path-icon {
+  font-size: 1.2em;
+}
+
+/* === SKILL NODE LAYOUTS === */
+.skills-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--spacing-md);
+  justify-items: center;
+}
+
+.skills-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+/* === SKILL NODES === */
+.skill-node {
+  background: var(--color-surface-light);
+  border: 2px solid var(--color-primary-dim);
+  border-radius: 8px;
+  padding: var(--spacing-md);
+  min-width: 120px;
+  max-width: 160px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  transition: all var(--transition-medium);
+  user-select: none;
+  
+  /* Clip corners for geometric feel */
+  clip-path: polygon(10px 0%, 100% 0%, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0% 100%, 0% 10px);
+}
+
+.skill-node:hover {
+  transform: scale(1.05);
+  border-color: var(--color-primary);
+  box-shadow: var(--glow-subtle);
+  background: var(--color-surface-lighter);
+}
+
+.skill-node.unlocked {
+  border-color: var(--color-primary);
+  background: var(--color-surface-lighter);
+  box-shadow: var(--glow-subtle);
+}
+
+.skill-node.available {
+  border-color: var(--color-accent);
+  animation: availablePulse 2s ease-in-out infinite;
+}
+
+@keyframes availablePulse {
+  0%, 100% { box-shadow: 0 0 5px var(--color-accent); }
+  50% { box-shadow: var(--glow-neon-green); }
+}
+
+/* Pitt Viper Tier Color Variations */
+.tier[data-tier="1"] .skill-node.available {
+  border-color: var(--color-accent);
+  animation: tier1Pulse 2s ease-in-out infinite;
+}
+
+.tier[data-tier="2"] .skill-node.available {
+  border-color: var(--color-electric-blue);
+  animation: tier2Pulse 2s ease-in-out infinite;
+}
+
+.tier[data-tier="3"] .skill-node.available {
+  border-color: var(--color-neon-yellow);
+  animation: tier3Pulse 2s ease-in-out infinite;
+}
+
+.tier[data-tier="4"] .skill-node.available {
+  border-color: var(--color-neon-orange);
+  animation: tier4Pulse 2s ease-in-out infinite;
+}
+
+.tier[data-tier="5"] .skill-node.available {
+  border-color: var(--color-primary-bright);
+  animation: tier5Pulse 2s ease-in-out infinite;
+}
+
+@keyframes tier1Pulse {
+  0%, 100% { box-shadow: 0 0 5px var(--color-accent); }
+  50% { box-shadow: var(--glow-neon-green); }
+}
+
+@keyframes tier2Pulse {
+  0%, 100% { box-shadow: 0 0 5px var(--color-electric-blue); }
+  50% { box-shadow: 0 0 15px var(--color-electric-blue), 0 0 25px var(--color-electric-blue); }
+}
+
+@keyframes tier3Pulse {
+  0%, 100% { box-shadow: 0 0 5px var(--color-neon-yellow); }
+  50% { box-shadow: 0 0 15px var(--color-neon-yellow), 0 0 25px var(--color-neon-yellow); }
+}
+
+@keyframes tier4Pulse {
+  0%, 100% { box-shadow: 0 0 5px var(--color-neon-orange); }
+  50% { box-shadow: 0 0 15px var(--color-neon-orange), 0 0 25px var(--color-neon-orange); }
+}
+
+@keyframes tier5Pulse {
+  0%, 100% { box-shadow: 0 0 5px var(--color-primary-bright); }
+  50% { box-shadow: var(--glow-bright); }
+}
+
+.skill-node.locked {
+  opacity: 0.4;
+  cursor: not-allowed;
+  filter: grayscale(100%);
+}
+
+/* === SKILL NODE VARIANTS === */
+.master-skill {
+  border-color: var(--color-primary-bright) !important;
+  background: linear-gradient(135deg, var(--color-surface-lighter), var(--color-surface-light));
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+.master-skill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 255, 0.2), transparent);
+  animation: masterSweep 3s ease-in-out infinite;
+}
+
+@keyframes masterSweep {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: -100%; }
+}
+
+.master-skill:hover {
+  box-shadow: var(--glow-bright);
+  border-color: var(--color-neon-yellow) !important;
+}
+
+.legendary-skill {
+  border: 3px solid var(--color-primary-bright) !important;
+  background: linear-gradient(135deg, #2a0a2a, #1a0a1a, #0a0a2a);
+  font-weight: 700;
+  min-width: 200px;
+  max-width: 250px;
+  padding: var(--spacing-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.legendary-skill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    transparent 30%, 
+    rgba(0, 255, 255, 0.1) 40%, 
+    rgba(255, 0, 255, 0.1) 50%, 
+    rgba(0, 255, 0, 0.1) 60%, 
+    transparent 70%);
+  animation: legendaryShimmer 2s ease-in-out infinite;
+}
+
+@keyframes legendaryShimmer {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+.legendary-skill:hover {
+  box-shadow: var(--glow-electric);
+  transform: scale(1.1);
+  border-color: var(--color-neon-yellow) !important;
+}
+
+/* === SKILL NODE CONTENT === */
+.skill-icon {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-sm);
+  display: block;
+}
+
+.skill-name {
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+  line-height: 1.2;
+}
+
+.skill-subtitle {
+  font-size: 0.75rem;
+  color: var(--color-primary-dim);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.2;
+}
+
+.skill-description {
+  font-size: 0.7rem;
+  color: var(--color-text-dim);
+  margin-bottom: var(--spacing-sm);
+  font-style: italic;
+}
+
+.skill-level {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--color-primary);
+  color: var(--color-background);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border: 2px solid var(--color-background);
+  box-shadow: var(--glow-subtle);
+}
+
+/* === CONNECTION LINES === */
+.connection-line {
+  width: 30px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  position: relative;
+  flex-shrink: 0;
+  box-shadow: 0 0 3px var(--color-primary);
+  animation: connectionFlow 3s ease-in-out infinite;
+}
+
+@keyframes connectionFlow {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; box-shadow: 0 0 6px var(--color-primary); }
+}
+
+.connection-line::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid var(--color-accent);
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  filter: drop-shadow(0 0 2px var(--color-accent));
+}
+
+.legendary-connection {
+  background: linear-gradient(90deg, var(--color-primary-bright), var(--color-neon-yellow), var(--color-primary-bright));
+  height: 3px;
+  box-shadow: var(--glow-bright);
+  animation: legendaryFlow 2s ease-in-out infinite;
+}
+
+@keyframes legendaryFlow {
+  0%, 100% { 
+    box-shadow: var(--glow-bright);
+    background-position: 0% 50%;
+  }
+  50% { 
+    box-shadow: var(--glow-electric);
+    background-position: 100% 50%;
+  }
+}
+
+.legendary-connection::before {
+  border-left-color: var(--color-neon-yellow);
+  filter: drop-shadow(0 0 3px var(--color-neon-yellow));
+}
+
+/* === LEGENDARY SKILLS SECTION === */
+.legendary-skills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  flex-wrap: wrap;
+}
+
+.legendary-tier {
+  background: linear-gradient(135deg, #2a0a2a, #1a0a1a, #0a1a2a);
+  border-color: var(--color-primary-bright);
+  box-shadow: var(--glow-electric);
+}
+
+/* === TIER COLOR VARIATIONS === */
+.tier[data-tier="1"] {
+  border-color: var(--color-accent);
+}
+
+.tier[data-tier="1"]::before {
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+}
+
+.tier[data-tier="2"] {
+  border-color: var(--color-electric-blue);
+}
+
+.tier[data-tier="2"]::before {
+  background: linear-gradient(90deg, transparent, var(--color-electric-blue), transparent);
+}
+
+.tier[data-tier="3"] {
+  border-color: var(--color-neon-yellow);
+}
+
+.tier[data-tier="3"]::before {
+  background: linear-gradient(90deg, transparent, var(--color-neon-yellow), transparent);
+}
+
+.tier[data-tier="4"] {
+  border-color: var(--color-neon-orange);
+}
+
+.tier[data-tier="4"]::before {
+  background: linear-gradient(90deg, transparent, var(--color-neon-orange), transparent);
+}
+
+.tier[data-tier="5"] {
+  border-color: var(--color-primary-bright);
+}
+
+.tier[data-tier="5"]::before {
+  background: linear-gradient(90deg, transparent, var(--color-primary-bright), transparent);
+}
+
+/* === MODAL STYLES === */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background: var(--color-surface);
+  margin: 5% auto;
+  padding: var(--spacing-xl);
+  border: 2px solid var(--color-primary);
+  border-radius: 15px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: var(--glow-primary);
+  position: relative;
+  clip-path: polygon(20px 0%, 100% 0%, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0% 100%, 0% 20px);
+}
+
+.close {
+  color: var(--color-primary);
+  float: right;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.close:hover {
+  color: var(--color-primary-bright);
+  text-shadow: var(--glow-subtle);
+}
+
+.skill-detail-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-primary-dim);
+}
+
+.skill-detail-icon {
+  font-size: 3rem;
+  color: var(--color-primary);
+}
+
+.skill-detail-name {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.skill-detail-subtitle {
+  color: var(--color-primary-dim);
+  margin-bottom: var(--spacing-sm);
+}
+
+.skill-detail-level {
+  background: var(--color-primary);
+  color: var(--color-background);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+  .skill-tree-container {
+    padding: var(--spacing-md);
+  }
+  
+  .tier {
+    padding: var(--spacing-md);
+  }
+  
+  .paths-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .skills-row {
+    flex-direction: column;
+  }
+  
+  .connection-line {
+    width: 2px;
+    height: 20px;
+    transform: rotate(90deg);
+  }
+  
+  .connection-line::before {
+    top: 100%;
+    right: 50%;
+    transform: translateX(50%);
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 8px solid var(--color-primary-dim);
+    border-bottom: none;
+  }
+  
+  .legendary-skills {
+    flex-direction: column;
+  }
+  
+  .modal-content {
+    margin: 10% auto;
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: var(--spacing-md);
+  }
+  
+  .main-title {
+    font-size: 1.8rem;
+  }
+  
+  .skill-node {
+    min-width: 100px;
+    max-width: 120px;
+    padding: var(--spacing-sm);
+  }
+  
+  .skill-name {
+    font-size: 0.8rem;
+  }
+  
+  .skill-subtitle {
+    font-size: 0.7rem;
+  }
+}
+
+/* === UTILITY CLASSES === */
+.text-glow {
+  text-shadow: var(--glow-subtle);
+}
+
+.border-glow {
+  box-shadow: var(--glow-subtle);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.visible {
+  display: block !important;
+}
+
+/* === ANIMATIONS === */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tier {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.tier:nth-child(2) { animation-delay: 0.1s; }
+.tier:nth-child(3) { animation-delay: 0.2s; }
+.tier:nth-child(4) { animation-delay: 0.3s; }
+.tier:nth-child(5) { animation-delay: 0.4s; }
+.tier:nth-child(6) { animation-delay: 0.5s; }
+
+/* === SCROLL ENHANCEMENTS === */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-primary), var(--color-primary-bright));
+  border-radius: 6px;
+  box-shadow: 0 0 3px var(--color-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-primary-bright), var(--color-accent));
+  box-shadow: 0 0 6px var(--color-primary-bright);
+}
+
+/* === PRINT STYLES === */
+@media print {
+  .background-grid,
+  .modal {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .skill-node,
+  .tier,
+  .skill-path {
+    border-color: #333 !important;
+    background: white !important;
+    box-shadow: none !important;
+  }
+} 
