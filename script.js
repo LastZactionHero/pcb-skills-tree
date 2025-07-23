@@ -442,7 +442,7 @@ class PCBSkillTree {
         const skillId = skillNode.dataset.skill;
         
         if (this.unlockedSkills.has(skillId)) {
-            this.addTooltip(skillNode, 'Mastered ✓');
+            this.addTooltip(skillNode, 'Unlocked ✓');
         } else if (this.canUnlockSkill(skillId)) {
             this.addTooltip(skillNode, 'Click to unlock!');
         } else {
@@ -570,7 +570,7 @@ class PCBSkillTree {
             actionsEl.innerHTML = `
                 <div class="skill-status unlocked">
                     <span class="status-icon">✅</span>
-                    <span class="status-text">Mastered</span>
+                    <span class="status-text">Unlocked</span>
                 </div>
             `;
         } else if (this.canUnlockSkill(skillId)) {
