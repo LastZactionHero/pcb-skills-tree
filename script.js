@@ -414,12 +414,27 @@ class PCBSkillTree {
 
         if (!skillInfo) return;
 
+        // Only show modal for skill preview, no auto-unlock
+        this.showSkillModal(skillId, skillInfo);
+    }
+
+    handleUnlockClick(event, skillId) {
+        event.preventDefault();
+        event.stopPropagation();
+        
         if (this.canUnlockSkill(skillId)) {
             this.unlockSkill(skillId);
-            this.showSkillUnlockedEffect(skillNode);
+            
+            // Show unlock effect on the actual skill node
+            const skillNode = document.querySelector(`[data-skill="${skillId}"]`);
+            if (skillNode) {
+                this.showSkillUnlockedEffect(skillNode);
+            }
+            
+            // Update the modal to show new status
+            const skillInfo = this.skillData[skillId];
+            this.showSkillModal(skillId, skillInfo);
         }
-        
-        this.showSkillModal(skillId, skillInfo);
     }
 
     handleSkillHover(event) {
@@ -547,6 +562,36 @@ class PCBSkillTree {
             unlocksEl.innerHTML = `<h4>Unlocks</h4><ul>${unlocks.map(name => `<li>${name}</li>`).join('')}</ul>`;
         } else {
             unlocksEl.innerHTML = '<h4>Unlocks</h4><p>This is a capstone skill</p>';
+        }
+        
+        // Add unlock button or status
+        const actionsEl = modal.querySelector('.skill-detail-actions');
+        if (this.unlockedSkills.has(skillId)) {
+            actionsEl.innerHTML = `
+                <div class="skill-status unlocked">
+                    <span class="status-icon">✅</span>
+                    <span class="status-text">Mastered</span>
+                </div>
+            `;
+        } else if (this.canUnlockSkill(skillId)) {
+            actionsEl.innerHTML = `
+                <button class="unlock-btn available" data-skill-id="${skillId}">
+                    <span class="btn-icon">⚡</span>
+                    Unlock Skill
+                </button>
+            `;
+            
+            // Add click handler for unlock button
+            const unlockBtn = actionsEl.querySelector('.unlock-btn');
+            unlockBtn.addEventListener('click', (e) => this.handleUnlockClick(e, skillId));
+        } else {
+            const missing = this.getMissingPrerequisites(skillId);
+            actionsEl.innerHTML = `
+                <div class="skill-status locked">
+                    <span class="status-icon">🔒</span>
+                    <span class="status-text">Requires: ${missing.join(', ')}</span>
+                </div>
+            `;
         }
         
         modal.style.display = 'block';
